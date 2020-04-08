@@ -17,4 +17,11 @@ class Pelicula:
     def __str__(self):
         return 'Titulo: {0}\nGénero: {1}'.format(self.titulo,self.genero)
 
+#Clase Videoclub que mantega y gestione las listas de socios y peliculas
+class Videoclub:
+    def __init__(self):
+        self.socios=[]
+        self.peliculas=[]
 
+
+        
