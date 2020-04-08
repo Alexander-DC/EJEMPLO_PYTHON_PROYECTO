@@ -23,5 +23,17 @@ class Videoclub:
         self.socios=[]
         self.peliculas=[]
 
+#Creacion de funciones
+#creacion de la funcion menu
 
-        
+def menu():
+    print("***VIDEOCLUB***")
+    print("1) Dar de alta un socio")
+    print("2) Dar de baja un socio")   
+    print("3) Dar de alta un nueva pelicula")
+    print("4) Dar de baja una pelicula")
+    print("5) Salir")
+    opcion=int(input("Ingrese opcion: "))
+    while opcion>5 or opcion<1:
+        opcion=int(input("Vuelva a ingresar una opcion correcta: "))   
+    return opcion
