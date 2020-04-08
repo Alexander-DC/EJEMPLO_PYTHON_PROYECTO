@@ -22,7 +22,15 @@ class Videoclub:
     def __init__(self):
         self.socios=[]
         self.peliculas=[]
-
+    
+    def contiene_socio(self,dni):
+        for socio in self.socios:
+            if socio.dni==dni:
+                return True
+        return False
+    
+    def alta_socio(self,socio):
+        self.socios.append(socio)
 #Creacion de funciones
 #creacion de la funcion menu
 
@@ -37,3 +45,14 @@ def menu():
     while opcion>5 or opcion<1:
         opcion=int(input("Vuelva a ingresar una opcion correcta: "))   
     return opcion
+
+def nuevo_socio():
+    dni=input("Ingrese su DNI: ")
+    nombre=input("Ingrese su nombre: ")
+    telefono=input("Ingrese su telofono: ")
+    domicilio=input("Ingrese su domicilio: ")
+    
+    return Socio(dni,nombre,telefono,domicilio)
+
+#El socio devuelto por nuevo_socio puede haber sido dado de alta previamente en el videoclub,
+#con lo que no sería procedente darlo de alta ahora. A
