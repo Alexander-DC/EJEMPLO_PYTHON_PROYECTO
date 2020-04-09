@@ -68,6 +68,14 @@ class Videoclub:
                     return True
                 else:
                     return False
+                
+    def listado_por_genero(self,genero):
+        print("Peliculas recomendadas de ese genero: ")
+        i=1
+        for pelicula in self.peliculas:
+            if pelicula.genero==genero and pelicula.alquilada==None:
+                print(" ",i,")",pelicula.titulo)
+                i=i+1    
 #---------------------------------------Creacion de funciones
 #creacion de la funcion menu
 
@@ -160,7 +168,8 @@ while opcion!=7:
     elif opcion==6:
         print("\nRecomendacion de pelicula")
         genero=input("Indique el genero de pelicula que esta buscando: ")
-        
+        videoclub.listado_por_genero(genero)
+        print("\n")
     opcion=menu()
     
         
