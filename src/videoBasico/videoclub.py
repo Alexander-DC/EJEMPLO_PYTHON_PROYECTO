@@ -79,7 +79,8 @@ def menu():
     print("3) Dar de alta un nueva pelicula")
     print("4) Dar de baja una pelicula")
     print("5) Alquilar pelicula")
-    print("6) Salir")
+    print("6) Recomendacion por pelicula")
+    print("7) Salir")
     opcion=int(input("Ingrese opcion: "))
     while opcion>6 or opcion<1:
         opcion=int(input("Vuelva a ingresar una opcion correcta: "))   
@@ -102,12 +103,12 @@ def nuevo_pelicula():
 #El socio devuelto por nuevo_socio puede haber sido dado de alta previamente en el videoclub,
 #con lo que no sería procedente darlo de alta ahora. A
 
-
+ #Hola mundo como estas, comentario de prueba  
 
 #Creando instancia de la clase Videoclub
 videoclub=Videoclub()
 opcion=menu()
-while opcion!=6:
+while opcion!=7:
     if opcion==1:
         print("\nAlta de socio")
         socio=nuevo_socio()
@@ -156,6 +157,10 @@ while opcion!=6:
             if not hay_socio:
                 print("No hay socio con DNI: ",dni)
             print("\n")    
+    elif opcion==6:
+        print("\nRecomendacion de pelicula")
+        genero=input("Indique el genero de pelicula que esta buscando: ")
+        
     opcion=menu()
     
         
