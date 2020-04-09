@@ -49,17 +49,25 @@ class Videoclub:
         self.peliculas.append(pelicula)
     
     def baja_pelicula(self,titulo):
-        for i in range(len(self.peliculas)):
+        for  i in range(len(self.peliculas)):
             if self.peliculas[i].titulo==titulo:
                 del self.peliculas[i]
                 break
-            
+        
     def contiene_pelicula(self,titulo):
         for pelicula in self.peliculas:
             if pelicula.titulo==titulo:
                 return True
-            return False
+        return False
     
+    def alquilar_pelicula(self, titulo,dni):
+        for pelicula in self.peliculas:
+            if pelicula.titulo==titulo: 
+                if pelicula.alquilada==None:
+                    pelicula.alquilada=dni
+                    return True
+                else:
+                    return False
 #---------------------------------------Creacion de funciones
 #creacion de la funcion menu
 
@@ -124,4 +132,30 @@ while opcion!=6:
         else:
             videoclub.alta_pelicula(pelicula)
             print("Pelicula agragada\n")
+            
+    elif opcion==4:
+        print("\nBaja de pelicula")
+        titulo=input("Ingrese titulo de la pelicula: ")
+        if videoclub.contiene_pelicula(titulo):
+            videoclub.baja_pelicula(titulo)
+            print("Pelicula con titulo:",titulo, "dado de baja\n")
+        else:
+            print("No existe ninguna pelicula con ese titulo:",pelicula,"\n")
+    elif opcion==5:
+        print("\nAlquiler de pelicula")
+        titulo=input("Titulo de la pelicula: ")
+        dni=input("DNI del socio: ")
+        hay_pelicula=videoclub.contiene_pelicula(titulo)
+        hay_socio=videoclub.contiene_socio(dni)
+        if hay_pelicula and hay_socio:
+            videoclub.alquilar_pelicula(titulo, dni)
+            print("Pelicula ",titulo," alquilada al DNI: ",dni,"\n"  )
+        else:
+            if not hay_pelicula:
+                print("No hay pelicula titulada ",titulo)
+            if not hay_socio:
+                print("No hay socio con DNI: ",dni)
+            print("\n")    
     opcion=menu()
+    
+        
